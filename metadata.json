@@ -1,0 +1,6 @@
+{
+  "name": "Grupo WR Service",
+  "description": "Segurança Patrimonial, Portaria Remota, Controle de Acesso e Facilities.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
