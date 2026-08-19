@@ -228,9 +228,9 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-transparent"></div>
           </div>
           
-          <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full pt-16 md:pt-0">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 w-full pt-28 md:pt-24">
             <div className="max-w-2xl">
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-4 md:mb-6">
+              <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white leading-[1.15] tracking-tight mb-4 md:mb-6">
                 Soluções inteligentes para empresas e <span className="text-orange-500">condomínios</span>
               </h1>
               <p className="text-sm md:text-xl text-zinc-400 mb-6 md:mb-10 leading-relaxed max-w-xl">
@@ -584,9 +584,9 @@ export default function Home() {
             <div className="max-w-7xl mx-auto px-4 md:px-8 w-full">
               <div className="bg-orange-600 rounded-2xl md:rounded-3xl overflow-hidden flex flex-col md:flex-row items-center">
                 <div className="hidden md:block w-full md:w-5/12 h-48 md:h-64 relative">
-                   <Image 
-                      src="https://picsum.photos/seed/security3/1920/1080"
-                      alt="Segurança Profissional"
+                   <Image
+                      src="/images/cta-eventos.jpg"
+                      alt="Equipe de segurança do Grupo WR Service em evento"
                       fill
                       className="object-cover"
                     />
