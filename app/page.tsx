@@ -345,16 +345,16 @@ export default function Home() {
         {/* Section 2: Services */}
         <section className="h-screen w-full shrink-0 relative flex flex-col justify-center bg-black overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 md:px-8 w-full pt-16 md:pt-0">
-            <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 md:mb-6 tracking-tight">
+            <div className="text-center max-w-3xl mx-auto mb-4 md:mb-8">
+              <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 md:mb-3 tracking-tight">
                 Soluções Completas para sua Empresa
               </h2>
-              <p className="text-zinc-400 text-xs md:text-lg hidden md:block">
+              <p className="text-zinc-400 text-xs md:text-base hidden md:block">
                 Terceirização estratégica para valorizar seu patrimônio. Oferecemos um ecossistema completo de serviços para que você foque apenas no crescimento do seu negócio.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
               {[
                 { icon: ShieldCheck, title: "Segurança Patrimonial", desc: "Monitoramento por câmeras, vigilância e ronda patrimonial.", img: "/images/services/seguranca-patrimonial.jpg" },
                 { icon: Sparkles, title: "Serviços Corporativos", desc: "Serviços terceirizados e suporte para o pleno funcionamento da operação." },
@@ -363,7 +363,7 @@ export default function Home() {
                 { icon: Video, title: "Recepção Corporativa", desc: "Recepção corporativa com excelência e qualidade no atendimento." },
                 { icon: Wrench, title: "Segurança para Eventos", desc: "Equipe qualificada para garantir a segurança do seu evento.", img: "/images/services/seguranca-eventos.jpg" },
               ].map((service, index) => (
-                <div key={index} className="relative bg-zinc-900/80 backdrop-blur border border-zinc-800 p-4 md:p-8 rounded-xl overflow-hidden hover:border-orange-500/50 hover:bg-zinc-900 transition-all duration-300 group">
+                <div key={index} className="relative bg-zinc-900/80 backdrop-blur border border-zinc-800 p-3 md:p-5 rounded-xl overflow-hidden hover:border-orange-500/50 hover:bg-zinc-900 transition-all duration-300 group">
                   {service.img && (
                     <>
                       <Image src={service.img} alt={service.title} fill className="object-cover object-top opacity-25 group-hover:opacity-35 transition-opacity" />
@@ -371,11 +371,11 @@ export default function Home() {
                     </>
                   )}
                   <div className="relative">
-                    <div className="w-10 h-10 md:w-14 md:h-14 bg-black border border-zinc-800 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-6 group-hover:bg-orange-600/10 group-hover:border-orange-500/30 transition-colors">
-                      <service.icon className="w-5 h-5 md:w-7 md:h-7 text-orange-500 group-hover:text-orange-400" />
+                    <div className="w-9 h-9 md:w-11 md:h-11 bg-black border border-zinc-800 rounded-lg md:rounded-xl flex items-center justify-center mb-2 md:mb-3 group-hover:bg-orange-600/10 group-hover:border-orange-500/30 transition-colors">
+                      <service.icon className="w-4 h-4 md:w-5 md:h-5 text-orange-500 group-hover:text-orange-400" />
                     </div>
-                    <h3 className="text-sm md:text-xl font-bold text-white mb-2 md:mb-4">{service.title}</h3>
-                    <p className="text-zinc-400 leading-snug md:leading-relaxed text-[10px] md:text-sm">
+                    <h3 className="text-sm md:text-base font-bold text-white mb-1 md:mb-2">{service.title}</h3>
+                    <p className="text-zinc-400 leading-snug text-[10px] md:text-xs">
                       {service.desc}
                     </p>
                   </div>
