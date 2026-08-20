@@ -607,7 +607,7 @@ export default function Home() {
                       src="/images/cta-eventos.jpg"
                       alt="Equipe de segurança do Grupo WR Service em evento"
                       fill
-                      className="object-cover"
+                      className="object-cover object-top"
                     />
                 </div>
                 <div className="w-full md:w-7/12 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6">
