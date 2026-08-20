@@ -39,15 +39,30 @@ export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const touchStartY = useRef(0);
+  const touchInsideScrollable = useRef(false);
+  const bioScrollRef = useRef<HTMLDivElement>(null);
   const totalSections = 9;
 
   useEffect(() => {
+    const canScrollInside = (target: EventTarget | null, deltaY: number) => {
+      const box = bioScrollRef.current;
+      if (!box || !(target instanceof Node) || !box.contains(target)) return false;
+      const atTop = box.scrollTop <= 0;
+      const atBottom = box.scrollTop + box.clientHeight >= box.scrollHeight - 1;
+      return (deltaY < 0 && !atTop) || (deltaY > 0 && !atBottom);
+    };
+
     const handleWheel = (e: WheelEvent) => {
       if (isMobileMenuOpen) return;
+
+      if (canScrollInside(e.target, e.deltaY)) {
+        return; // let the bio text scroll naturally instead of changing section
+      }
+
       e.preventDefault();
-      
+
       if (isAnimating) return;
-      
+
       if (e.deltaY > 0 && currentSection < totalSections - 1) {
         navigateSection(currentSection + 1);
       } else if (e.deltaY < 0 && currentSection > 0) {
@@ -58,19 +73,23 @@ export default function Home() {
     const handleTouchStart = (e: TouchEvent) => {
       if (isMobileMenuOpen) return;
       touchStartY.current = e.touches[0].clientY;
+      const box = bioScrollRef.current;
+      touchInsideScrollable.current = !!(box && e.target instanceof Node && box.contains(e.target));
     };
 
     const handleTouchMove = (e: TouchEvent) => {
       if (isMobileMenuOpen) return;
+      if (touchInsideScrollable.current) return; // let the bio text scroll naturally
       e.preventDefault();
     };
 
     const handleTouchEnd = (e: TouchEvent) => {
       if (isMobileMenuOpen || isAnimating) return;
-      
+      if (touchInsideScrollable.current) return;
+
       const touchEndY = e.changedTouches[0].clientY;
       const deltaY = touchStartY.current - touchEndY;
-      
+
       if (deltaY > 50 && currentSection < totalSections - 1) {
         navigateSection(currentSection + 1);
       } else if (deltaY < -50 && currentSection > 0) {
@@ -255,7 +274,7 @@ export default function Home() {
                     src="/images/director.png"
                     alt="Weslei Grego - Diretor Operacional"
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                   />
                   <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/90 to-transparent">
                      <h3 className="text-2xl font-bold text-white mb-1">Weslei Grego</h3>
@@ -264,7 +283,7 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="max-h-[60vh] overflow-y-auto pr-2 md:pr-4 custom-scrollbar">
+              <div ref={bioScrollRef} className="max-h-[60vh] lg:max-h-[65vh] overflow-y-auto pr-2 md:pr-4 custom-scrollbar">
                 <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 tracking-tight leading-tight uppercase">
                   Weslei Grego
                 </h2>
